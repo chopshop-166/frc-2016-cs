@@ -30,7 +30,6 @@ namespace ChopShop2016
         private POVUpTrigger povUpTrigger = new POVUpTrigger();
         private POVDownTrigger povDownTrigger = new POVDownTrigger();
         private RightXBoxTrigger rightXBoxTrigger = new RightXBoxTrigger();
-        private LeftXBoxTrigger leftXBoxTrigger = new LeftXBoxTrigger();
         #endregion
 
         Command autonomousCommand;
@@ -67,7 +66,6 @@ namespace ChopShop2016
             povUpTrigger.WhenActive(new MoveActuatorsUp());
             povDownTrigger.WhenActive(new MoveActuatorsDown());
             rightXBoxTrigger.WhenActive(new MediumRangeShot());
-            // leftXBoxTrigger.WhenActive(new BackwardMovingShot());
         }
 
         public override void DisabledPeriodic()

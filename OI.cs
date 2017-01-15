@@ -31,7 +31,6 @@ namespace ChopShop2016
             JoystickButton rightJoyButton4 = new JoystickButton(rightStick, 4);
             JoystickButton rightJoyButton5 = new JoystickButton(rightStick, 5);
             JoystickButton rightJoyButton3 = new JoystickButton(rightStick, 3);
-            JoystickButton rightJoyButton7 = new JoystickButton(rightStick, 7);
 
             JoystickButton CPbutton1 = new JoystickButton(copilotController, 1);
             JoystickButton CPbutton2 = new JoystickButton(copilotController, 2);
@@ -40,7 +39,6 @@ namespace ChopShop2016
             JoystickButton CPbutton5 = new JoystickButton(copilotController, 5);
             JoystickButton CPbutton6 = new JoystickButton(copilotController, 6);
             JoystickButton CPbutton7 = new JoystickButton(copilotController, 7);
-            JoystickButton CPbutton8 = new JoystickButton(copilotController, 8);
 
             // Buttons
             leftJoyTrigger.WhileHeld(new DriveWithGyro());

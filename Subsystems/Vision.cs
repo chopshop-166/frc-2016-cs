@@ -15,12 +15,10 @@ namespace ChopShop2016.Subsystems
         double xOffset = 0;
         double xPos = 0;
         NetworkTable visionTable;
-        NetworkTable driveTable;
 
         public Vision()
         {
             visionTable = NetworkTable.GetTable("VisionDataTable");
-            driveTable = NetworkTable.GetTable("drive");
         }
 
         public double DesiredShooterAngle
@@ -45,7 +43,7 @@ namespace ChopShop2016.Subsystems
         public double correctForLag(double offset)
         {
 
-            var lagAngle = cameraLag * driveTable.GetNumber("GyroRate", 0.0);
+            var lagAngle = cameraLag * ChopShop2016.drive.GyroRate;
             SmartDashboard.PutNumber("Correction Angle", lagAngle);
 
             var offsetAngle = offset * (45.0 / 160.0);

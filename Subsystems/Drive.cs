@@ -60,8 +60,6 @@ namespace ChopShop2016.Subsystems
         RobotDrive tankDrive;
         #endregion
 
-        NetworkTable driveTable;
-
         public enum Gear
         {
             Low,
@@ -73,8 +71,6 @@ namespace ChopShop2016.Subsystems
 
         public Drive()
         {
-            driveTable = NetworkTable.GetTable("drive");
-
             leftDrive = new MultiSpeedController(new ISpeedController[] { leftTopMotor, leftBotMotor }, "Drive", "Left Multi Drive");
             rightDrive = new MultiSpeedController(new ISpeedController[] { rightTopMotor, rightBotMotor }, "Drive", "Right Multi Drive");
 
