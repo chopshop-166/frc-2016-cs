@@ -155,6 +155,10 @@
     <Compile Include="Subsystems\Shooter.cs" />
     <Compile Include="Subsystems\ShooterLock.cs" />
     <Compile Include="Subsystems\Vision.cs" />
+    <Compile Include="Triggers\POVDownTrigger.cs" />
+    <Compile Include="Triggers\POVUpTrigger.cs" />
+    <Compile Include="Triggers\RightXBoxTrigger.cs" />
+    <Compile Include="Triggers\LeftXBoxTrigger.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

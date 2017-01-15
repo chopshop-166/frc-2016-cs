@@ -1,4 +1,7 @@
-﻿using ChopShop2016.Subsystems;
+﻿using ChopShop2016.Commands;
+using ChopShop2016.Commands.Autonomous;
+using ChopShop2016.Subsystems;
+using ChopShop2016.Triggers;
 using WPILib;
 using WPILib.Commands;
 using WPILib.LiveWindow;
@@ -24,12 +27,10 @@ namespace ChopShop2016
         private static SendableChooser autoChooser;
 
         #region Triggers
-#if false
         private POVUpTrigger povUpTrigger = new POVUpTrigger();
         private POVDownTrigger povDownTrigger = new POVDownTrigger();
         private RightXBoxTrigger rightXBoxTrigger = new RightXBoxTrigger();
         private LeftXBoxTrigger leftXBoxTrigger = new LeftXBoxTrigger();
-#endif
         #endregion
 
         Command autonomousCommand;
@@ -54,38 +55,26 @@ namespace ChopShop2016
 
             // auto chooser commands
             autoChooser.AddObject("NOTHING", null);
-#if false
             autoChooser.AddDefault("ONE: LOW", new FarLeftAuto());
             autoChooser.AddObject("MID: UP", new AllUpMidAuto());
             autoChooser.AddObject("MID: DOWN", new AllDownMidAuto());
             autoChooser.AddObject("MID: CDF", new MidCDFAuto());
-            autoChooser.AddObject("TWO: DOWN (Untested)", new AllDownPositionTwoAuto());
-            autoChooser.AddObject("TWO: UP (Untested)", new AllUpPositionTwoAuto());
-#endif
+            autoChooser.AddObject("TWO: (Untested)", new PositionTwoAuto());
+            autoChooser.AddObject("FIVE: (Untested)", new PositionFiveAuto());
 
             SmartDashboard.PutData("Autonomous", autoChooser);
 
-#if false
-            povUpTrigger.whenActive(new MoveActuatorsUp());
-            povDownTrigger.whenActive(new MoveActuatorsDown());
-            rightXBoxTrigger.whenActive(new SlowMediumRangeShot());
-            // leftXBoxTrigger.whenActive(new BackwardMovingShot());
-#endif
+            povUpTrigger.WhenActive(new MoveActuatorsUp());
+            povDownTrigger.WhenActive(new MoveActuatorsDown());
+            rightXBoxTrigger.WhenActive(new MediumRangeShot());
+            // leftXBoxTrigger.WhenActive(new BackwardMovingShot());
         }
 
         public override void DisabledPeriodic()
         {
             Scheduler.Instance.Run();
         }
-
-        // This autonomous (along with the sendable chooser above) shows how to select between
-        // different autonomous modes using the dashboard. The senable chooser code works with
-        // the Java SmartDashboard. If you prefer the LabVIEW Dashboard, remove all the chooser
-        // code an uncomment the GetString code to get the uto name from the text box below
-        // the gyro.
-        // You can add additional auto modes by adding additional commands to the chooser code
-        // above (like the commented example) or additional comparisons to the switch structure
-        // below with additional strings and commands.
+        
         public override void AutonomousInit()
         {
             autonomousCommand = (Command)autoChooser.GetSelected();
