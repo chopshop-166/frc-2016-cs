@@ -49,12 +49,10 @@ namespace ChopShop2016
             rightJoyButton2.WhenPressed(new EjectBall());
             rightJoyButton4.WhileHeld(new TurnFromRightWall());
             rightJoyButton5.WhileHeld(new TurnFromLeftWall());
-            // rightJoyButton7.WhenPressed(new Neutral());
 
             // The Following commands are mapped from buttons on a joystick and may
             // need to be changed if the copilot's controller turns out to be an
             // Xbox controller
-            // CPbutton1.whenPressed(new LoadingProcess());
             CPbutton1.WhenPressed(new MediumRangeShot());
             CPbutton2.WhenPressed(new BatterShot());
             CPbutton3.WhenPressed(new CancelShot());

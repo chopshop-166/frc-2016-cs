@@ -24,7 +24,7 @@ namespace ChopShop2016.Commands.Aim
         }
 
         // Make this return true when this Command no longer needs to run Execute()
-        protected override bool IsFinished() { return false; }
+        protected override bool IsFinished() => false;
 
         // Called once after isFinished returns true
         protected override void End() { ChopShop2016.aimShooter.Stop(); }

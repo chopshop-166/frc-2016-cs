@@ -8,7 +8,7 @@ namespace ChopShop2016.Commands
         protected override void Execute() { }
 
         // Make this return true when this Command no longer needs to run Execute()
-        protected override bool IsFinished() { return true; }
+        protected override bool IsFinished() => true;
 
         // Called once after isFinished returns true
         protected override void End() { }

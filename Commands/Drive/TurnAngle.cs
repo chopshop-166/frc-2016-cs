@@ -47,8 +47,6 @@ namespace ChopShop2016.Commands.Drive
 
         // Called when another command which requires one or more of the same
         // subsystems is scheduled to run
-        protected override void Interrupted()
-        {
-        }
+        protected override void Interrupted() { }
     }
 }
