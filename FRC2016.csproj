@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RobotProject="yes" />
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D728E27D-9038-4FBD-BC03-9E58D5118F0F}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ChopShop2016</RootNamespace>
+    <AssemblyName>ChopShop2016</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FRC.CameraServer, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FRC.CameraServer.1.0.0\lib\net45\FRC.CameraServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FRC.NetworkTables.Core, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FRC.NetworkTables.Core.3.1.6\lib\net45\FRC.NetworkTables.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FRC.OpenCvSharp, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FRC.OpenCvSharp.1.0.0\lib\net45\FRC.OpenCvSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FRC.WPILib.CTRE">
+      <HintPath>..\packages\FRC.WPILib.CTRE.2017.0.0\lib\net451\FRC.WPILib.CTRE.dll</HintPath>
+    </Reference>
+    <Reference Include="HAL, Version=2017.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FRC.WPILib.Extras.2017.0.1\lib\net451\HAL.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NativeLibraryUtilities, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NativeLibraryUtilities.1.0.0\lib\net45\NativeLibraryUtilities.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WPILib, Version=2017.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FRC.WPILib.2017.0.1\lib\net451\WPILib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WPILib.Extras, Version=2017.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FRC.WPILib.Extras.2017.0.1\lib\net451\WPILib.Extras.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Commands\Aim\AimToMinimumAngle.cs" />
+    <Compile Include="Commands\Aim\AimToAngle.cs" />
+    <Compile Include="Commands\Aim\AimParallel.cs" />
+    <Compile Include="Commands\Aim\Aim.cs" />
+    <Compile Include="Commands\AManipulators\ToggleAManipulators.cs" />
+    <Compile Include="Commands\AManipulators\RaiseAManipulators.cs" />
+    <Compile Include="Commands\AManipulators\LowerAManipulators.cs" />
+    <Compile Include="Commands\Autonomous\AllUpMidAuto.cs" />
+    <Compile Include="Commands\Autonomous\UberAuto.cs" />
+    <Compile Include="Commands\Autonomous\PaperWeightAuto.cs" />
+    <Compile Include="Commands\Autonomous\MidCDFAuto.cs" />
+    <Compile Include="Commands\Autonomous\FarLeftAuto.cs" />
+    <Compile Include="Commands\Autonomous\PositionTwoAuto.cs" />
+    <Compile Include="Commands\Autonomous\PositionFiveAuto.cs" />
+    <Compile Include="Commands\Autonomous\AllDownMidAuto.cs" />
+    <Compile Include="Commands\MoveActuatorsUp.cs" />
+    <Compile Include="Commands\MoveActuatorsDown.cs" />
+    <Compile Include="Commands\MediumRangeShot.cs" />
+    <Compile Include="Commands\ManipulateBall.cs" />
+    <Compile Include="Commands\LoadingProcess.cs" />
+    <Compile Include="Commands\ForwardMovingShot.cs" />
+    <Compile Include="Commands\EjectBall.cs" />
+    <Compile Include="Commands\BatterShot.cs" />
+    <Compile Include="Commands\Drive\TurnToGoalWithGyroSlow.cs" />
+    <Compile Include="Commands\Drive\TurnToGoalWithGyro.cs" />
+    <Compile Include="Commands\Drive\TurnToGoalWhileDrivingForward.cs" />
+    <Compile Include="Commands\Drive\TurnToGoalWhileDrivingBackward.cs" />
+    <Compile Include="Commands\Drive\TurnToGoalSlowParallel.cs" />
+    <Compile Include="Commands\Drive\TurnToGoal.cs" />
+    <Compile Include="Commands\Drive\TurnToGoalSlow.cs" />
+    <Compile Include="Commands\Drive\TurnToGoalFast.cs" />
+    <Compile Include="Commands\Drive\TurnFromRightWall.cs" />
+    <Compile Include="Commands\Drive\TurnFromLeftWall.cs" />
+    <Compile Include="Commands\Drive\TurnAngle.cs" />
+    <Compile Include="Commands\Drive\ToggleDirection.cs" />
+    <Compile Include="Commands\Drive\SpinRight.cs" />
+    <Compile Include="Commands\Drive\SpinLeft.cs" />
+    <Compile Include="Commands\Drive\DriveWithJoysticksBackward.cs" />
+    <Compile Include="Commands\Drive\DriveWithJoysticks.cs" />
+    <Compile Include="Commands\Drive\DriveWithGyro.cs" />
+    <Compile Include="Commands\Drive\DriveToBatter.cs" />
+    <Compile Include="Commands\Drive\DriveDistance.cs" />
+    <Compile Include="Commands\Drive\Neutral.cs" />
+    <Compile Include="Commands\Drive\LowGear.cs" />
+    <Compile Include="Commands\Drive\HighGear.cs" />
+    <Compile Include="Commands\Intake\ToggleSolenoid.cs" />
+    <Compile Include="Commands\Intake\RaiseRake.cs" />
+    <Compile Include="Commands\Intake\LowerRake.cs" />
+    <Compile Include="Commands\Intake\IntakeStop.cs" />
+    <Compile Include="Commands\Intake\IntakeReverse.cs" />
+    <Compile Include="Commands\Intake\IntakeForward.cs" />
+    <Compile Include="Commands\AutoLoadingProcess.cs" />
+    <Compile Include="Commands\BackwardMovingShot.cs" />
+    <Compile Include="Commands\CancelShot.cs" />
+    <Compile Include="Commands\Roller\ForwardRoller.cs" />
+    <Compile Include="Commands\Roller\RollerSequence.cs" />
+    <Compile Include="Commands\Roller\StopRoller.cs" />
+    <Compile Include="Commands\Roller\ReverseRoller.cs" />
+    <Compile Include="Commands\Roller\MoveBallIntoStorage.cs" />
+    <Compile Include="Commands\Roller\MoveBallIntoShooter.cs" />
+    <Compile Include="Commands\ShooterLock\UnlockShooter.cs" />
+    <Compile Include="Commands\ShooterLock\LockShooter.cs" />
+    <Compile Include="Commands\Shooter\SetShooterSpeed.cs" />
+    <Compile Include="Controllers\PIDSpeedController.cs" />
+    <Compile Include="Controllers\MultiSpeedController.cs" />
+    <Compile Include="Commands\InstantCommand.cs" />
+    <Compile Include="OI.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="ChopShop2016.cs" />
+    <Compile Include="RobotMap.cs" />
+    <Compile Include="Subsystems\AManipulators.cs" />
+    <Compile Include="Subsystems\Drive.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Subsystems\AimShooter.cs" />
+    <Compile Include="Subsystems\Intake.cs" />
+    <Compile Include="Subsystems\IntakeRoller.cs" />
+    <Compile Include="Subsystems\Shooter.cs" />
+    <Compile Include="Subsystems\ShooterLock.cs" />
+    <Compile Include="Subsystems\Vision.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="wpinative\libcscore.so" />
+    <None Include="wpinative\libHALAthena.so" />
+    <None Include="wpinative\libntcore.so" />
+    <None Include="wpinative\libOpenCvSharpExtern.so" />
+    <None Include="wpinative\libopencv_calib3d.so.3.1" />
+    <None Include="wpinative\libopencv_core.so.3.1" />
+    <None Include="wpinative\libopencv_features2d.so.3.1" />
+    <None Include="wpinative\libopencv_flann.so.3.1" />
+    <None Include="wpinative\libopencv_highgui.so.3.1" />
+    <None Include="wpinative\libopencv_imgcodecs.so.3.1" />
+    <None Include="wpinative\libopencv_imgproc.so.3.1" />
+    <None Include="wpinative\libopencv_ml.so.3.1" />
+    <None Include="wpinative\libopencv_objdetect.so.3.1" />
+    <None Include="wpinative\libopencv_photo.so.3.1" />
+    <None Include="wpinative\libopencv_shape.so.3.1" />
+    <None Include="wpinative\libopencv_stitching.so.3.1" />
+    <None Include="wpinative\libopencv_superres.so.3.1" />
+    <None Include="wpinative\libopencv_video.so.3.1" />
+    <None Include="wpinative\libopencv_videoio.so.3.1" />
+    <None Include="wpinative\libopencv_videostab.so.3.1" />
+    <None Include="wpinative\libwpiutil.so" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
