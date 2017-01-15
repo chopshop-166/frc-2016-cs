@@ -12,29 +12,29 @@ namespace ChopShop2016.Subsystems
     public sealed class Drive : Subsystem, IDisposable
     {
         #region Constants
-        double distancePerPulse = (System.Math.PI * 10.25) / 1024.0; // calculated based on wheel diameter and encoder specs
+        // calculated based on wheel diameter and encoder specs
+        double distancePerPulse = (System.Math.PI * 10.25) / 1024.0;
         double gyroConstant = -0.3 / 10.0;
         double driveSpeedModifierConstant = .7;
+
+        const double joyDeadZone = 0.1;
+        const double turnSpeedScalar = 0.3; // was .35
+        const double shotZone = .05;
+
+        const double alignSpeedDeadzone = 1.0;
+        const double brakeSpeed = .1;
+        const double driveLeftMotorsForwardSpeed = 1.0;
+        const double alignSpeed = .17;
+
+        const double highGearValue = 0.0;
+        const double lowGearValue = 1.0;
+        #endregion
 
         public double turnToGoalAngle = 0;
         double referenceAngle = 0;
         public bool isReversed = false;
-        double joyDeadZone = 0.1;
         double gyroVal = 0;
         double joystickTurnOffset;
-        double turnSpeedScalar = 0.3; // was .35
-        double turnRate = 0;
-        double shotZone = .05;
-
-        double alignSpeedDeadzone = 1.0;
-        double brakeSpeed = .1;
-        double driveLeftMotorsForwardSpeed = 1.0;
-        double alignForwardSpeed = .17;
-        double alignBackwardSpeed = .17;
-
-        double highGearValue = 0.0;
-        double lowGearValue = 1.0;
-        #endregion
 
         #region Devices
         readonly CANTalon leftTopMotor = new CANTalon(RobotMap.CAN.leftTopDrive);
@@ -181,17 +181,7 @@ namespace ChopShop2016.Subsystems
             rightBotMotor.Set(speed);
         }
 
-        public void turnToGoalWhileDrivingForward(double offset)
-        {
-            turnToGoalWhileDriving(offset, alignForwardSpeed);
-        }
-
-        public void turnToGoalWhileDrivingBackward(double offset)
-        {
-            turnToGoalWhileDriving(offset, alignBackwardSpeed);
-        }
-
-        public void turnToGoalWhileDriving(double offset, double speed)
+        public void turnToGoalWhileDriving(double offset, double speed = alignSpeed)
         {
             var alignScalar = Math.Min(offset * 2, .23);
             if (offset > shotZone)
@@ -261,14 +251,14 @@ namespace ChopShop2016.Subsystems
 
         public void Brake()
         {
-            turnRate = gyro.GetRate(); // Get the gyro rate in degrees/second
+            var turnRate = gyro.GetRate(); // Get the gyro rate in degrees/second
             if (turnRate > alignSpeedDeadzone)
             {
-                BrakeToLeft(); // Spin with low power to the left
+                SetAll(brakeSpeed); // Spin with low power to the left
             }
             else if (turnRate < -alignSpeedDeadzone)
             {
-                BrakeToRight(); // Spin with low power to the right
+                SetAll(-brakeSpeed); // Spin with low power to the right
             }
             else
             {
@@ -277,16 +267,6 @@ namespace ChopShop2016.Subsystems
         }
 
         public bool IsRobotSpinning => Math.Abs(gyro.GetRate()) >= alignSpeedDeadzone;
-
-        public void BrakeToRight()
-        {
-            SetAll(-brakeSpeed);
-        }
-
-        public void BrakeToLeft()
-        {
-            SetAll(brakeSpeed);
-        }
 
         public void Stop()
         {
@@ -326,7 +306,6 @@ namespace ChopShop2016.Subsystems
 
         public void ResetEncoders()
         {
-            // resets the encoders
             leftEncoder.Reset();
             rightEncoder.Reset();
         }

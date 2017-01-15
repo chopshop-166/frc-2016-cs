@@ -22,7 +22,7 @@ namespace ChopShop2016.Commands.Drive
         // Called repeatedly when this Command is scheduled to run
         protected override void Execute()
         {
-            ChopShop2016.drive.turnToGoalWhileDrivingForward(ChopShop2016.vision.XOffset);
+            ChopShop2016.drive.turnToGoalWhileDriving(ChopShop2016.vision.XOffset);
         }
 
         // Make this return true when this Command no longer needs to run Execute()
