@@ -1,2 +1,4 @@
 language: csharp
 solution: FRC2016.csproj
+install:
+  - nuget restore packages.config
