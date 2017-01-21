@@ -1,4 +1,6 @@
-﻿namespace ChopShop2016.Commands.AManipulators
+﻿using WPILib.Commands;
+
+namespace ChopShop2016.Commands.AManipulators
 {
     public class ToggleAManipulators : InstantCommand
     {

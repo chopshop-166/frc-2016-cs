@@ -1,4 +1,6 @@
-﻿namespace ChopShop2016.Commands
+﻿using WPILib.Commands;
+
+namespace ChopShop2016.Commands
 {
     public class CancelShot : InstantCommand
     {

@@ -1,4 +1,6 @@
-﻿namespace ChopShop2016.Commands.Shooter
+﻿using WPILib.Commands;
+
+namespace ChopShop2016.Commands.Shooter
 {
     public class SetShooterSpeed : InstantCommand
     {

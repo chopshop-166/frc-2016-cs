@@ -1,4 +1,6 @@
-﻿namespace ChopShop2016.Commands.Drive
+﻿using WPILib.Commands;
+
+namespace ChopShop2016.Commands.Drive
 {
     public class HighGear : InstantCommand
     {

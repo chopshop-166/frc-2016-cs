@@ -1,4 +1,6 @@
-﻿namespace ChopShop2016.Commands.ShooterLock
+﻿using WPILib.Commands;
+
+namespace ChopShop2016.Commands.ShooterLock
 {
     public class UnlockShooter : InstantCommand
     {

@@ -1,4 +1,6 @@
-﻿namespace ChopShop2016.Commands.Roller
+﻿using WPILib.Commands;
+
+namespace ChopShop2016.Commands.Roller
 {
     public class StopRoller : InstantCommand
     {

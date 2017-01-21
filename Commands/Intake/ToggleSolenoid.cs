@@ -1,4 +1,6 @@
-﻿namespace ChopShop2016.Commands.Intake
+﻿using WPILib.Commands;
+
+namespace ChopShop2016.Commands.Intake
 {
     public class ToggleSolenoid : InstantCommand
     {
